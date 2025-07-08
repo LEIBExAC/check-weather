@@ -1,0 +1,79 @@
+.weather-icon-sunny {
+  animation: sun-rays 5s linear infinite;
+}
+
+@keyframes sun-rays {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+}
+
+.weather-icon-clouds {
+  animation: clouds-move 8s ease-in-out infinite;
+}
+
+@keyframes clouds-move {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+.weather-icon-rain {
+  animation: raindrops-fall 1s linear infinite;
+}
+
+@keyframes raindrops-fall {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+}
+
+.bg-clear {
+  background: linear-gradient(to bottom, #fceabb, #f8b500);
+}
+
+.bg-clouds {
+  background: linear-gradient(to bottom, #d7d2cc, #304352);
+}
+
+.bg-rain {
+  background: linear-gradient(to bottom, #4e54c8, #8f94fb);
+}
+
+.bg-snow {
+  background: linear-gradient(to bottom, #e0eafc, #cfdef3);
+}
+
+.bg-night {
+  background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+}
+
+
+.light-theme {
+  color: #1a202c;
+}
+
+.dark-theme {
+  background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+  color: #f0f0f0;
+}
+
+.dark-theme input,
+.dark-theme button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #666;
+  color: white;
+}

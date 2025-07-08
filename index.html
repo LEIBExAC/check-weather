@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  </head>
+  <body class="bg-blue-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
+      <h1 class="text-2xl font-bold text-center mb-4">Check Weather</h1>
+      <iconify-icon
+        icon="${getIcon(condition)}"
+        width="64"
+        height="64"
+      ></iconify-icon>
+      <iconify-icon
+        icon="${getIcon(condition)}"
+        width="64"
+        height="64"
+      ></iconify-icon>
+
+      <div class="flex items-center gap-2 mb-4">
+        <input
+          id="cityInput"
+          type="text"
+          placeholder="Enter city name"
+          class="flex-1 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+
+        <div class="flex justify-center items-center gap-2 mb-4">
+          <label for="unitToggle" class="text-sm">°C / °F</label>
+          <button
+            id="unitToggle"
+            class="px-3 py-1 bg-gray-200 rounded text-sm font-medium hover:bg-gray-300"
+          >
+            Switch to °F
+          </button>
+        </div>
+
+        <button
+          id="searchBtn"
+          class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >
+          Search
+        </button>
+      </div>
+
+      <button
+        id="geoBtn"
+        class="w-full bg-green-500 text-white px-4 py-2 mb-4 rounded hover:bg-green-600"
+      >
+        Use My Location
+      </button>
+      <div id="weatherResult" class="text-center text-gray-700">
+        <!-- Weather data will go here -->
+      </div>
+      <div class="absolute bottom-0 right-0 opacity-20 z-0">
+        <img
+          id="weatherIllustration"
+          src="./assets/sunny.svg"
+          class="w-48 h-48"
+          alt="illustration"
+        />
+      </div>
+
+      <div
+        id="forecastResult"
+        class="max-w-md mx-auto mt-6 p-4 bg-white rounded-lg shadow-md grid grid-cols-1 sm:grid-cols-5 gap-4 text-center"
+      ></div>
+
+      <!-- Favorites & Save Button Container -->
+      <div
+        class="max-w-md mx-auto mt-4 px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+      >
+        <button
+          id="saveFavoriteBtn"
+          class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition"
+        >
+          ⭐ Save to Favorites
+        </button>
+
+        <div id="favoritesList" class="flex flex-wrap gap-2 mt-2 sm:mt-0">
+          <!-- Favorite cities appear here -->
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
