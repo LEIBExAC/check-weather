@@ -8,82 +8,104 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
   </head>
-  <body class="bg-blue-100 min-h-screen flex items-center justify-center">
-    <div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
-      <h1 class="text-2xl font-bold text-center mb-4">Check Weather</h1>
-      <iconify-icon
-        icon="${getIcon(condition)}"
-        width="64"
-        height="64"
-      ></iconify-icon>
-      <iconify-icon
-        icon="${getIcon(condition)}"
-        width="64"
-        height="64"
-      ></iconify-icon>
+  <body
+    class="bg-purple-300 bg-center bg-cover min-h-screen items-center justify-center"
+  >
+    <div class="p-6">
+      <!-- <h1 class="text-2xl font-bold text-center mb-4">Check Weather</h1> -->
 
-      <div class="flex items-center gap-2 mb-4">
-        <input
-          id="cityInput"
-          type="text"
-          placeholder="Enter city name"
-          class="flex-1 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
-
-        <div class="flex justify-center items-center gap-2 mb-4">
-          <label for="unitToggle" class="text-sm">°C / °F</label>
-          <button
-            id="unitToggle"
-            class="px-3 py-1 bg-gray-200 rounded text-sm font-medium hover:bg-gray-300"
-          >
-            Switch to °F
-          </button>
-        </div>
-
-        <button
-          id="searchBtn"
-          class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-        >
-          Search
-        </button>
-      </div>
-
-      <button
+      <!-- Use Location Button -->
+      <!-- <button
+        type="button"
         id="geoBtn"
         class="w-full bg-green-500 text-white px-4 py-2 mb-4 rounded hover:bg-green-600"
       >
         Use My Location
-      </button>
-      <div id="weatherResult" class="text-center text-gray-700">
-        <!-- Weather data will go here -->
-      </div>
-      <div class="absolute bottom-0 right-0 opacity-20 z-0">
+      </button> -->
+
+      <!-- Background Illustration -->
+      <!-- <div class="opacity-20 pointer-events-none">
         <img
           id="weatherIllustration"
-          src="./assets/sunny.svg"
+          src="./assests/pexels-brett-sayles-912364.jpg"
           class="w-48 h-48"
           alt="illustration"
         />
-      </div>
+      </div> -->
 
-      <div
-        id="forecastResult"
-        class="max-w-md mx-auto mt-6 p-4 bg-white rounded-lg shadow-md grid grid-cols-1 sm:grid-cols-5 gap-4 text-center"
-      ></div>
-
-      <!-- Favorites & Save Button Container -->
-      <div
-        class="max-w-md mx-auto mt-4 px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+      <!-- Favorites Section -->
+      <!-- <div
+        class="mt-4 flex flex-col justify-center align-center sm:flex-row sm:items-center justify-between gap-4"
       >
         <button
+          type="button"
           id="saveFavoriteBtn"
           class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition"
         >
           ⭐ Save to Favorites
         </button>
 
-        <div id="favoritesList" class="flex flex-wrap gap-2 mt-2 sm:mt-0">
-          <!-- Favorite cities appear here -->
+        <div id="favoritesList" class="flex flex-wrap gap-2"></div>
+      </div> -->
+    </div>
+
+    <div class="flex flex-col items-center">
+      <div class="search-bar">
+        <form id="weatherForm">
+          <!-- Weather Icons -->
+          <div class="flex justify-center gap-4 mb-4">
+            <iconify-icon
+              icon="${getIcon(condition)}"
+              width="64"
+              height="64"
+            ></iconify-icon>
+            <iconify-icon
+              icon="${getIcon(condition)}"
+              width="64"
+              height="64"
+            ></iconify-icon>
+          </div>
+
+          <!-- City Input and Unit Toggle -->
+          <div class="flex items-center gap-2 mb-4">
+            <input
+              id="cityInput"
+              name="city"
+              type="text"
+              placeholder="Enter city name"
+              autofocus
+              required
+              class="flex-1 rounded-3xl min-w-[600px] bg-bl px-3 py-2 focus:outline-none shadow-xl"
+            />
+
+            <!-- <button
+            type="button"
+            id="unitToggle"
+            class="px-3 py-1 bg-gray-200 rounded text-sm font-medium hover:bg-gray-300"
+          >
+            Switch to °F
+          </button> -->
+          </div>
+
+          <!-- Search Button -->
+          <button
+            id="searchBtn"
+            type="submit"
+            class="w-full bg-blue-500 text-white px-4 py-2 rounded-3xl hover:bg-blue-600 mb-4 hidden"
+          ></button>
+        </form>
+      </div>
+
+      <div class="forecast">
+        <!-- Weather Result -->
+        <div id="weatherResult" class="text-center text-gray-700 mb-4"></div>
+      </div>
+      <div class="five-days-forecast">
+        <!-- Forecast -->
+        <div
+          id="forecastResult"
+          class="mt-6 p-4 grid grid-cols-1 sm:grid-cols-5 gap-4 text-center shad"
+        >
         </div>
       </div>
     </div>

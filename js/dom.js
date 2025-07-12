@@ -22,6 +22,9 @@ export function displayWeather(data, unit = "metric") {
 
   const {
     name,
+    dt,
+    sunrise,
+    sunset,
     main: { temp },
     weather,
   } = data;
@@ -34,8 +37,8 @@ export function displayWeather(data, unit = "metric") {
 
   const isDaytime = dt >= sunrise && dt < sunset;
 
-  applyWeatherTheme2(condition);
-  updateIllustration(condition);
+  applyWeatherTheme(condition);
+  // updateIllustration(condition);
   // applyWeatherTheme(condition); // Apply theme based on condition
 
   weatherResult.innerHTML = `

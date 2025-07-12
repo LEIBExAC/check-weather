@@ -1,5 +1,5 @@
 const weatherThemes = {
-  Clear: "bg-gradient-to-b from-yellow-300 to-yellow-500",
+  Clear: "bg-gradient-to-b from-yellow-100 to-yellow-800",
   Clouds: "bg-gradient-to-b from-gray-400 to-gray-600",
   Rain: "bg-gradient-to-b from-blue-400 to-blue-700",
   Drizzle: "bg-gradient-to-b from-blue-200 to-blue-400",
