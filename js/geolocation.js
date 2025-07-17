@@ -1,8 +1,15 @@
 import { getWeatherByCoords, getFiveDayForecast } from './api.js';
 import { displayWeather, displayForecast, showError } from './dom.js';
 
+let currentUnit = "metric";
+
 export function setupGeolocationButton(saveCoordsCallback) {
   const geoBtn = document.getElementById('geoBtn');
+
+  if (!geoBtn) {
+    console.warn('Geolocation button not found.');
+    return;
+  }
 
   geoBtn.addEventListener('click', () => {
     if (!navigator.geolocation) {
@@ -21,7 +28,6 @@ export function setupGeolocationButton(saveCoordsCallback) {
           const data = await getWeatherByCoords(latitude, longitude, currentUnit);
           displayWeather(data, currentUnit);
 
-          // Fetch city name from data for forecast API
           const cityName = data.name;
           if (cityName) {
             const forecastData = await getFiveDayForecast(cityName, currentUnit);
@@ -38,7 +44,7 @@ export function setupGeolocationButton(saveCoordsCallback) {
           geoBtn.textContent = 'Use My Location';
         }
       },
-      () => {
+      (error) => {
         showError('Permission denied or location unavailable.');
         geoBtn.disabled = false;
         geoBtn.textContent = 'Use My Location';

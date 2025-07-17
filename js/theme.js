@@ -15,7 +15,6 @@ export function applyWeatherTheme(condition) {
   const body = document.body;
   const defaultTheme = "bg-gradient-to-b from-blue-100 to-blue-300";
 
-  // Remove old background classes
   body.className = body.className
     .split(" ")
     .filter(
